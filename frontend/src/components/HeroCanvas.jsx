@@ -24,6 +24,7 @@ export default function HeroCanvas({ className = "" }) {
 
     resize();
     for (let i = 0; i < N; i++) {
+      const r = Math.random();
       pts.push({
         x: Math.random(),
         y: Math.random(),
@@ -31,7 +32,14 @@ export default function HeroCanvas({ className = "" }) {
         vy: (Math.random() - 0.5) * 0.00055,
         r: Math.random() * 1.5 + 0.7,
         depth: Math.random() * 0.8 + 0.2,
-        c: Math.random() > 0.84 ? "245,158,11" : Math.random() > 0.5 ? "148,163,184" : "56,189,248",
+        c:
+          r > 0.88
+            ? "232,74,51"
+            : r > 0.72
+              ? "245,166,35"
+              : r > 0.5
+                ? "148,163,184"
+                : "107,184,232",
       });
     }
 

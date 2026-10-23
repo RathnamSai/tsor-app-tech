@@ -17,6 +17,15 @@ module.exports = {
         ink: '#0B0F17',
         surface: '#111827',
         panel: '#1E293B',
+        amber: {
+          300: '#F9CC7D',
+          400: '#F7B84B',
+          500: '#F5A623',
+          600: '#D98A0F'
+        },
+        cyan: {
+          400: '#6BB8E8'
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

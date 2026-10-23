@@ -6,9 +6,9 @@ export const LogoMark = ({ className = "h-9 w-9" }) => (
     className={className}
     aria-hidden="true"
   >
-    <path d="M6 8H34V14H23V34H17V14H6V8Z" fill="currentColor" />
-    <path d="M23 20L34 31V34H29L18 23V20H23Z" fill="#F59E0B" />
-    <circle cx="20" cy="20" r="2" fill="#38BDF8" />
+    <path d="M6 8H34V14H23V34H17V14H6V8Z" fill="#E84A33" />
+    <path d="M23 20L34 31V34H29L18 23V20H23Z" fill="#F5A623" />
+    <circle cx="20" cy="20" r="2" fill="#6BB8E8" />
   </svg>
 );
 
