@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/Logo";
-import { SERVICES, INDUSTRIES } from "@/data/siteData";
+import { SERVICES } from "@/data/siteData";
 
 export default function Footer() {
   return (
@@ -90,9 +90,6 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.24em] text-slate-500">
-              {INDUSTRIES.length} INDUSTRIES · {SERVICES.length} PRACTICES
-            </p>
           </div>
         </div>
 
