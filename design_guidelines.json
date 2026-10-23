@@ -1,0 +1,212 @@
+{
+  "project_name": "TSOR Technologies",
+  "archetype": "Architectural High-Tech & Precision Swiss Enterprise",
+  "theme": "Dark-Dominant Dual Mode (Obsidian Deep Slate Base with Warm Amber Kinetic Accents)",
+  "brand_identity": {
+    "name": "TSOR Technologies",
+    "tagline": "Architecting Next-Generation Enterprise Systems & Digital Futures",
+    "voice": "Authoritative, Precise, Visionary, Engineering-led",
+    "logo_concept": {
+      "svg_mark": "<svg viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M6 8H34V14H23V34H17V14H6V8Z' fill='currentColor'/><path d='M23 20L34 31V34H29L18 23V20H23Z' fill='#F59E0B'/><circle cx='20' cy='20' r='2' fill='#38BDF8'/></svg>",
+      "wordmark": "TSOR",
+      "descriptor": "TECHNOLOGIES",
+      "design_rationale": "Interlocking T-structure with kinetic diagonal beam and central node symbolizing precision engineering, connectivity, and enterprise intelligence."
+    }
+  },
+  "typography": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap",
+    "font_family_display": "'Syne', sans-serif",
+    "font_family_body": "'Plus Jakarta Sans', sans-serif",
+    "font_family_mono": "'JetBrains Mono', monospace",
+    "scale": {
+      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]",
+      "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-tight",
+      "h3_card": "text-xl sm:text-2xl font-semibold tracking-tight",
+      "h4_title": "text-lg sm:text-xl font-semibold",
+      "body_lg": "text-lg text-slate-300 font-normal leading-relaxed",
+      "body_base": "text-base text-slate-400 font-normal leading-relaxed",
+      "caption": "text-xs font-mono uppercase tracking-[0.2em] text-amber-400"
+    }
+  },
+  "colors": {
+    "background_main": "#0B0F17",
+    "background_surface": "#111827",
+    "background_card": "#1E293B",
+    "background_glass": "rgba(17, 24, 39, 0.75)",
+    "border_subtle": "rgba(255, 255, 255, 0.08)",
+    "border_active": "rgba(245, 158, 11, 0.4)",
+    "primary_text": "#F8FAFC",
+    "secondary_text": "#94A3B8",
+    "muted_text": "#64748B",
+    "accent_amber": "#F59E0B",
+    "accent_copper": "#D97706",
+    "accent_cyan": "#38BDF8",
+    "accent_emerald": "#10B981",
+    "gradients": {
+      "hero_glow": "radial-gradient(circle at 50% 20%, rgba(245, 158, 11, 0.15) 0%, rgba(56, 189, 248, 0.05) 40%, transparent 70%)",
+      "card_highlight": "linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%)",
+      "text_gradient": "linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 100%)",
+      "amber_text_gradient": "linear-gradient(135deg, #FBBF24 0%, #F59E0B 50%, #D97706 100%)"
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": "backdrop-blur-xl bg-slate-900/80 border border-white/10 shadow-2xl",
+    "card_hover": "transition-all duration-300 hover:-translate-y-1.5 hover:border-amber-500/40 hover:shadow-[0_12px_30px_rgba(245,158,11,0.12)]",
+    "tracing_beam": "relative before:absolute before:inset-0 before:p-[1px] before:bg-gradient-to-r before:from-amber-500/50 before:to-cyan-500/50 before:rounded-xl before:-z-10",
+    "grid_pattern": "background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px); background-size: 24px 24px;"
+  },
+  "navigation_and_header": {
+    "layout": "Fixed sticky top navbar with glassmorphism (z-50), brand logo, 5 top-level routes, mega-menu for 'What We Do' sub-services, search trigger, and 'Get in Touch' CTA button.",
+    "links": [
+      { "name": "Home", "path": "/" },
+      {
+        "name": "Who We Are",
+        "path": "/who-we-are",
+        "sub_links": ["About Us", "Join Us / Careers"]
+      },
+      {
+        "name": "What We Do",
+        "path": "/what-we-do",
+        "has_mega_menu": true,
+        "mega_menu_groups": [
+          {
+            "category": "Services",
+            "items": [
+              "Supply Chain & Sourcing",
+              "Managed Services & Support",
+              "Consulting",
+              "Digital Transformation",
+              "Cloud Services",
+              "CX Transformation",
+              "CX Contact Center",
+              "Staffing & Recruitment Consulting",
+              "Product/Software Engineering & QA",
+              "AI, Analytics & ML"
+            ]
+          },
+          { "category": "Products", "items": ["Enterprise AI Engine (Coming Soon)"] },
+          { "category": "Training", "items": ["Tech Academy & Upskilling (Coming Soon)"] },
+          { "category": "R&D", "items": ["Applied AI & Robotics Lab"] }
+        ]
+      },
+      {
+        "name": "Industries",
+        "path": "/industries",
+        "sub_links": [
+          "Manufacturing", "Healthcare", "Pharmacy", "Robotics", 
+          "Cloud & Power Infrastructure", "Automotive", "Consumer", 
+          "Communications", "Industrial & Power Industries"
+        ]
+      },
+      { "name": "Contact", "path": "/contact" }
+    ]
+  },
+  "pages_blueprint": {
+    "home": {
+      "path": "/",
+      "sections": [
+        {
+          "id": "hero",
+          "name": "Kinetic Hero with Masked Reveal & 3D Interactive Canvas",
+          "description": "Bold headline with line-by-line masked scroll reveal, dynamic 3D webgl tech mesh/particles background, dual CTAs ('Explore Solutions', 'Schedule Consultation'), real-time stats ticker."
+        },
+        {
+          "id": "editorial-marquee",
+          "name": "Living Editorial Ribbon",
+          "description": "Slow, elegant marquee sliding enterprise capabilities: AI & Analytics · Digital Transformation · Cloud Architecture · Next-Gen Supply Chain · CX Modernization."
+        },
+        {
+          "id": "value-proposition",
+          "name": "Tetris Bento Grid - Core Value Pillars",
+          "description": "Asymmetric bento grid featuring Enterprise Intelligence, High-Scale Infrastructure, Precision Staffing, and R&D Innovation."
+        },
+        {
+          "id": "services-preview",
+          "name": "What We Do Showcase",
+          "description": "Interactive horizontal card stack presenting the 10 sub-services with live filters and detail preview triggers."
+        },
+        {
+          "id": "industries-banner",
+          "name": "Industry Impact Grid",
+          "description": "Interactive grid displaying solutions across Manufacturing, Healthcare, Automotive, Robotics, Cloud, etc."
+        },
+        {
+          "id": "cta-strip",
+          "name": "Architectural Conversion Banner",
+          "description": "High-impact dark canvas strip with kinetic light beam and direct link to project estimator."
+        }
+      ]
+    },
+    "who_we_are": {
+      "path": "/who-we-are",
+      "sections": [
+        { "id": "about-hero", "name": "Vision & Mission Narrative Header" },
+        { "id": "company-story", "name": "The TSOR Methodology & Engineering Heritage" },
+        { "id": "leadership", "name": "Executive Leadership & Subject Matter Experts" },
+        { "id": "careers-info", "name": "Careers & Join Us Section (Info, Values, Culture, Perks, Talent Pool Form)" }
+      ]
+    },
+    "what_we_do": {
+      "path": "/what-we-do",
+      "sections": [
+        { "id": "services-hero", "name": "Capabilities Overview Header" },
+        { "id": "ten-services-grid", "name": "10 Core Sub-Services Detailed Directory (Expandable Bento/Cards with specifications)" },
+        { "id": "products-coming-soon", "name": "Products Roadmap (Coming Soon Badge & Feature Preview)" },
+        { "id": "training-coming-soon", "name": "Corporate Training & Upskilling (Coming Soon)" },
+        { "id": "rnd-lab", "name": "TSOR R&D Applied Innovations Lab" }
+      ]
+    },
+    "industries": {
+      "path": "/industries",
+      "sections": [
+        { "id": "industries-hero", "name": "Domain Expertise Header" },
+        { "id": "nine-industries-bento", "name": "9 Key Industry Solutions Grid (Manufacturing, Healthcare, Pharmacy, Robotics, Cloud/Power, Automotive, Consumer, Communications, Industrial/Power)" },
+        { "id": "case-studies-preview", "name": "Featured Enterprise Case Metrics" }
+      ]
+    },
+    "contact": {
+      "path": "/contact",
+      "sections": [
+        { "id": "contact-hero", "name": "Connect With TSOR Engineers" },
+        { "id": "contact-form-and-details", "name": "Interactive Front-End Contact Form + Office Locations & Direct Contacts" },
+        { "id": "location-map-block", "name": "Interactive Global Hubs & Headquarters Map Element" }
+      ]
+    }
+  },
+  "image_urls": {
+    "hero_tech": "https://images.unsplash.com/photo-1637166185518-058f5896a2e9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTF8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwdGVjaG5vbG9neSUyMGFic3RyYWN0JTIwc2VydmVyJTIwbmV0d29yayUyMGNsb3VkfGVufDB8fHx8MTc5MjcxNjQzM3ww&ixlib=rb-4.1.0&q=85",
+    "server_rack": "https://images.pexels.com/photos/17489157/pexels-photo-17489157.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "server_network": "https://images.pexels.com/photos/17323801/pexels-photo-17323801.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "robotics_arm": "https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBjb3Jwb3JhdGUlMjBvZmZpY2UlMjBlbmdpbmVlcmluZyUyMHJvYm90aWNzJTIwbWFudWZhY3R1cmluZyUyMGhlYWx0aGNhcmUlMjBhdXRvbW90aXZlJTIwdGVjaG5vbG9neXxlbnwwfHx8fDE3OTI3MTY0MzN8MA&ixlib=rb-4.1.0&q=85",
+    "manufacturing_factory": "https://images.unsplash.com/photo-1647427060118-4911c9821b82?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBjb3Jwb3JhdGUlMjBvZmZpY2UlMjBlbmdpbmVlcmluZyUyMHJvYm90aWNzJTIwbWFudWZhY3R1cmluZyUyMGhlYWx0aGNhcmUlMjBhdXRvbW90aXZlJTIwdGVjaG5vbG9neXxlbnwwfHx8fDE3OTI3MTY0MzN8MA&ixlib=rb-4.1.0&q=85",
+    "automotive_lab": "https://images.pexels.com/photos/5506047/pexels-photo-5506047.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "healthcare_lab": "https://images.unsplash.com/photo-1578496480240-32d3e0c04525?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBtZWRpY2FsJTIwaGVhbHRoY2FyZSUyMGxhYiUyMHNjaWVudGlzdCUyMHBoYXJtYWN5JTIwdGVjaG5vbG9neXxlbnwwfHx8fDE3OTI3MTY0NDF8MA&ixlib=rb-4.1.0&q=85",
+    "pharmacy_scientist": "https://images.pexels.com/photos/8442098/pexels-photo-8442098.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "team_collaboration": "https://images.pexels.com/photos/1181618/pexels-photo-1181618.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "executive_meeting": "https://images.pexels.com/photos/1181735/pexels-photo-1181735.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "motion_and_libraries": {
+    "lenis": "Smooth scrolling momentum across all routes",
+    "framer_motion": "Page transitions, stagger reveals, mega menu drop-in, tab switches",
+    "lucide_icons": "Minimalist iconography (lucide-react)",
+    "three_js": "Particle mesh canvas hero background"
+  },
+  "testing_requirements": {
+    "data_testid_rule": "All interactive elements, buttons, nav links, form inputs, cards, dropdowns must have descriptive data-testid attributes (e.g., data-testid='nav-link-services', data-testid='contact-form-submit-button')."
+  },
+  "instructions_to_main_agent": [
+    "Build a multi-page React router application for TSOR Technologies matching all sitemap items.",
+    "Implement the 5 top-level routes: Home, Who We Are, What We Do, Industries, Contact.",
+    "Ensure 'What We Do' detailed showcase covers all 10 sub-services, R&D, and Coming Soon badges for Products and Training.",
+    "Ensure 'Industries' page showcases all 9 specified industries with custom visual identity and metrics.",
+    "Ensure 'Who We Are' contains the requested simple Careers / Join Us info section with culture highlights and application form modal/drawer.",
+    "Use Lenis for smooth scroll, framer-motion for scrollytelling masked animations, and lucide-react icons.",
+    "Ensure all components follow the dark architectural slate theme, high contrast ratios, and complete data-testid attributes."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Do NOT use generic Inter font for headings; use Syne or Plus Jakarta Sans.",
+    "Do NOT use pure #000000 background; use #0B0F17 or #111827 tinted dark slate.",
+    "Always set explicit hover text colors and data-testid on interactive elements.",
+    "Do NOT use placeholder image services like placehold.it; use provided real image URLs."
+  ]
+}
