@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { SERVICES, INDUSTRIES } from "@/data/siteData";
 
@@ -88,12 +88,6 @@ export default function Footer() {
                 <a href="tel:+15125550148" data-testid="footer-phone" className="transition-colors hover:text-amber-400">
                   +1 (512) 555-0148
                 </a>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-amber-500" />
-                <span data-testid="footer-address">
-                  600 Congress Ave, Austin, TX 78701
-                </span>
               </li>
             </ul>
             <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.24em] text-slate-500">

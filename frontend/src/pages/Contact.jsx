@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { Mail, Phone, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { Reveal, MaskLine, SectionHead } from "@/components/Reveal";
 import { SERVICES } from "@/data/siteData";
 
@@ -273,15 +273,6 @@ export default function Contact() {
                       >
                         +1 (512) 555-0148
                       </a>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-amber-500" />
-                    <div>
-                      <p className="font-semibold text-slate-200">Headquarters</p>
-                      <p className="text-slate-400" data-testid="contact-address">
-                        600 Congress Ave, Austin, TX 78701
-                      </p>
                     </div>
                   </li>
                 </ul>
