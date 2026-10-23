@@ -84,8 +84,9 @@ export default function WhoWeAre() {
             className="mt-7 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg"
             data-testid="who-subcopy"
           >
-            TSOR Technologies exists to close the gap between strategy decks and running systems.
-            We advise like consultants and deliver like an engineering shop — because we are one.
+            TSOR Technologies is a technology and business solutions company — helping organizations
+            navigate complex business and technology challenges with innovative solutions, industry
+            expertise, and technology-driven strategies.
           </motion.p>
         </div>
 
@@ -104,6 +105,48 @@ export default function WhoWeAre() {
             />
           </div>
         </motion.div>
+      </section>
+
+      {/* ABOUT US */}
+      <section id="about" className="scroll-mt-28 border-t border-white/10 bg-surface/40" data-testid="about-section">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 lg:grid-cols-[1fr_1.5fr] lg:px-8 lg:py-32">
+          <SectionHead
+            eyebrow="About Us"
+            title="Technology and business solutions, under one roof."
+            testid="about-head"
+          />
+          <div className="space-y-6">
+            <Reveal>
+              <p className="text-base leading-relaxed text-slate-300 sm:text-lg" data-testid="about-intro">
+                TSOR Technologies is a technology and business solutions company specializing in
+                Artificial Intelligence (AI), Digital Transformation, Consulting, Supply Chain &amp;
+                Sourcing, Staffing Solutions, Managed IT Services &amp; Support, and Product
+                Development &amp; Engineering.
+              </p>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <p className="text-base leading-relaxed text-slate-400">
+                We help organizations navigate complex business and technology challenges by
+                combining innovative solutions, industry expertise, and technology-driven
+                strategies.
+              </p>
+            </Reveal>
+            <Reveal delay={0.14}>
+              <p className="text-base leading-relaxed text-slate-400">
+                From transforming business processes and implementing AI solutions to optimizing
+                supply chains, providing skilled talent, managing IT environments, and developing
+                innovative products, we deliver solutions designed to improve efficiency, agility,
+                and long-term growth.
+              </p>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="border-l-2 border-amber-500 pl-5 font-display text-lg font-bold leading-snug text-slate-100 sm:text-xl" data-testid="about-mission">
+                At TSOR Technologies, we turn ideas and challenges into practical solutions that
+                drive business success.
+              </p>
+            </Reveal>
+          </div>
+        </div>
       </section>
 
       {/* METHOD */}

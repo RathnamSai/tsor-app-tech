@@ -26,7 +26,7 @@
 - Contact form wired to backend (stored in MongoDB, validated with EmailStr)
 - Original TSOR logo mark (SVG) + favicon; dark architectural theme
 - Lenis momentum scrolling, framer-motion reveals, particle canvas hero, editorial marquee
-- Placeholder copy throughout (user to supply real content); leadership names/metrics/address are placeholders
+- Placeholder copy throughout except: real About Us narrative (user-provided) and real email info@tsortechnologies.com (2026-10-23); leadership names/metrics/address/phone remain placeholders
 
 ## Backlog
 - P0: Real company content (user to provide), real contact details/address

@@ -254,11 +254,11 @@ export default function Contact() {
                     <div>
                       <p className="font-semibold text-slate-200">Email</p>
                       <a
-                        href="mailto:hello@tsortechnologies.com"
+                        href="mailto:info@tsortechnologies.com"
                         data-testid="contact-email-link"
                         className="text-slate-400 transition-colors hover:text-amber-400"
                       >
-                        hello@tsortechnologies.com
+                        info@tsortechnologies.com
                       </a>
                     </div>
                   </li>
