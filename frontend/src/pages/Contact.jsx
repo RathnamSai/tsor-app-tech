@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { Mail, Phone, Send, CheckCircle2 } from "lucide-react";
 import { Reveal, MaskLine, SectionHead } from "@/components/Reveal";
 import { SERVICES } from "@/data/siteData";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const CONTACT_EMAIL = "info@tsortechnologies.com";
 
 const INTERESTS = [
   ...SERVICES.map((s) => s.title),
@@ -25,34 +25,27 @@ const initialForm = { name: "", email: "", company: "", interest: "General Enqui
 
 export default function Contact() {
   const [form, setForm] = useState(initialForm);
-  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
-  const [errorMsg, setErrorMsg] = useState("");
+  const [sent, setSent] = useState(false);
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
-  const submit = async (e) => {
+  const submit = (e) => {
     e.preventDefault();
-    setStatus("sending");
-    setErrorMsg("");
-    try {
-      const res = await fetch(`${API}/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.detail || "Submission failed");
-      }
-      setStatus("sent");
-    } catch (err) {
-      setStatus("error");
-      setErrorMsg(
-        typeof err.message === "string"
-          ? err.message
-          : "Something went wrong. Please email us directly."
-      );
-    }
+    const subject = `Website Enquiry — ${form.interest} — ${form.name}`;
+    const body = [
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      form.company ? `Company: ${form.company}` : null,
+      `Interested in: ${form.interest}`,
+      "",
+      form.message,
+    ]
+      .filter(Boolean)
+      .join("\n");
+    setSent(true);
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
   };
 
   const inputCls =
@@ -102,29 +95,36 @@ export default function Contact() {
           {/* FORM */}
           <Reveal>
             <div className="rounded-2xl border border-white/10 bg-surface/60 p-7 sm:p-10">
-              {status === "sent" ? (
+              {sent ? (
                 <div className="flex min-h-[420px] flex-col items-center justify-center text-center" data-testid="contact-form-success">
                   <CheckCircle2 className="h-12 w-12 text-emerald-400" />
                   <h2 className="mt-6 font-display text-2xl font-bold text-slate-50">
-                    Message received.
+                    Your email draft is ready.
                   </h2>
                   <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-400">
-                    An engineer will come back to you within one business day. For anything urgent,
-                    call the number alongside.
+                    Your mail app should have opened with everything filled in — just press send. If
+                    it didn't open, write to us directly at{" "}
+                    <a
+                      href={`mailto:${CONTACT_EMAIL}`}
+                      className="font-semibold text-amber-400 transition-colors hover:text-amber-300"
+                    >
+                      {CONTACT_EMAIL}
+                    </a>
+                    .
                   </p>
                   <button
                     data-testid="contact-form-reset"
                     onClick={() => {
                       setForm(initialForm);
-                      setStatus("idle");
+                      setSent(false);
                     }}
                     className="mt-8 rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-slate-200 transition-colors hover:border-amber-500/50 hover:text-amber-400"
                   >
-                    Send another message
+                    Write another message
                   </button>
                 </div>
               ) : (
-                <form onSubmit={submit} data-testid="contact-form" noValidate={false}>
+                <form onSubmit={submit} data-testid="contact-form">
                   <p className="font-mono text-[10px] font-medium uppercase tracking-[0.28em] text-amber-400">
                     Project Enquiry
                   </p>
@@ -208,34 +208,18 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  {status === "error" && (
-                    <div
-                      data-testid="contact-form-error"
-                      className="mt-5 flex items-start gap-2.5 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300"
-                    >
-                      <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
-                      {errorMsg}
-                    </div>
-                  )}
-
                   <button
                     type="submit"
                     data-testid="contact-form-submit"
-                    disabled={status === "sending"}
-                    className="group mt-8 inline-flex items-center gap-2 rounded-full bg-amber-500 px-8 py-4 text-sm font-bold text-ink transition-all duration-300 hover:bg-amber-400 hover:shadow-[0_10px_36px_rgba(245,158,11,0.35)] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="group mt-8 inline-flex items-center gap-2 rounded-full bg-amber-500 px-8 py-4 text-sm font-bold text-ink transition-all duration-300 hover:bg-amber-400 hover:shadow-[0_10px_36px_rgba(245,158,11,0.35)]"
                   >
-                    {status === "sending" ? (
-                      <>
-                        Sending
-                        <Loader2 className="h-4 w-4 animate-spin" />
-                      </>
-                    ) : (
-                      <>
-                        Send Enquiry
-                        <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </>
-                    )}
+                    Send Enquiry
+                    <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </button>
+                  <p className="mt-4 text-xs text-slate-500">
+                    Opens your email app with the message pre-filled — nothing is stored on our
+                    servers.
+                  </p>
                 </form>
               )}
             </div>
@@ -254,11 +238,11 @@ export default function Contact() {
                     <div>
                       <p className="font-semibold text-slate-200">Email</p>
                       <a
-                        href="mailto:info@tsortechnologies.com"
+                        href={`mailto:${CONTACT_EMAIL}`}
                         data-testid="contact-email-link"
                         className="text-slate-400 transition-colors hover:text-amber-400"
                       >
-                        info@tsortechnologies.com
+                        {CONTACT_EMAIL}
                       </a>
                     </div>
                   </li>

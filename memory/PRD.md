@@ -10,8 +10,9 @@
 
 ## Architecture
 - Frontend: React 19 + react-router-dom 7 (5 routes), Tailwind, framer-motion (masked reveals, scroll reveals, accordion), Lenis smooth scroll, custom canvas particle hero with mouse parallax
-- Backend: FastAPI + MongoDB (motor). `POST /api/contact` stores enquiries; `GET /api/contact` lists them
-- Design system: /app/design_guidelines.json — Obsidian slate (#0B0F17), amber #F59E0B accents, Syne display / Plus Jakarta Sans body / JetBrains Mono labels, custom SVG logo + favicon
+- Backend: FastAPI + MongoDB retained in repo but NO LONGER used by frontend (2026-10-23): site converted to fully static for Cloudflare Pages deployment. Contact form now opens visitor's email app via mailto:info@tsortechnologies.com (no DB storage). public/_redirects added for SPA routing on static hosts.
+- Static build: `yarn build` in frontend/ → output dir `build/` (verified passing)
+- Design system: /app/design_guidelines.json — Obsidian slate (#0B0F17), logo-palette accents (amber #F5A623, red #E84A33, blues), Syne display / Plus Jakarta Sans body / JetBrains Mono labels, custom 4-color SVG logo + favicon
 
 ## Core Requirements (static)
 1. Home — kinetic masked-reveal hero, marquee, bento pillars, services index, industries strip, CTA
