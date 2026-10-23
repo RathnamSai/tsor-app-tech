@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { Reveal, MaskLine, SectionHead } from "@/components/Reveal";
@@ -6,6 +6,24 @@ import { SERVICES } from "@/data/siteData";
 
 const CONTACT_EMAIL = "info@tsortechnologies.com";
 const WEB3FORMS_KEY = process.env.REACT_APP_WEB3FORMS_ACCESS_KEY || "";
+const TURNSTILE_KEY = process.env.REACT_APP_TURNSTILE_SITE_KEY || "";
+
+let turnstileReady;
+function waitForTurnstile() {
+  if (window.turnstile) return Promise.resolve(window.turnstile);
+  if (!turnstileReady) {
+    turnstileReady = new Promise((resolve, reject) => {
+      const deadline = Date.now() + 10000;
+      const poll = () => {
+        if (window.turnstile) return resolve(window.turnstile);
+        if (Date.now() > deadline) return reject(new Error("Turnstile did not load"));
+        window.setTimeout(poll, 50);
+      };
+      poll();
+    });
+  }
+  return turnstileReady;
+}
 
 const INTERESTS = [
   ...SERVICES.map((s) => s.title),
@@ -28,8 +46,46 @@ export default function Contact() {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const [errorMsg, setErrorMsg] = useState("");
+  const [token, setToken] = useState("");
+  const [widgetFailed, setWidgetFailed] = useState(false);
+  const turnstileRef = useRef(null);
+  const widgetIdRef = useRef(null);
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  useEffect(() => {
+    if (!TURNSTILE_KEY) return undefined;
+    let cancelled = false;
+    waitForTurnstile()
+      .then((turnstile) => {
+        if (cancelled || widgetIdRef.current !== null || !turnstileRef.current) return;
+        widgetIdRef.current = turnstile.render(turnstileRef.current, {
+          sitekey: TURNSTILE_KEY,
+          theme: "dark",
+          callback: (t) => setToken(t),
+          "expired-callback": () => setToken(""),
+          "error-callback": () => {
+            setToken("");
+            setWidgetFailed(true);
+          },
+        });
+      })
+      .catch(() => setWidgetFailed(true));
+    return () => {
+      cancelled = true;
+      if (widgetIdRef.current !== null && window.turnstile) {
+        window.turnstile.remove(widgetIdRef.current);
+        widgetIdRef.current = null;
+      }
+    };
+  }, []);
+
+  const resetTurnstile = () => {
+    setToken("");
+    if (widgetIdRef.current !== null && window.turnstile) {
+      window.turnstile.reset(widgetIdRef.current);
+    }
+  };
 
   const buildMailto = () => {
     const subject = `Website Enquiry — ${form.interest} — ${form.name}`;
@@ -55,6 +111,11 @@ export default function Contact() {
       window.location.href = buildMailto();
       return;
     }
+    if (TURNSTILE_KEY && !widgetFailed && !token) {
+      setStatus("error");
+      setErrorMsg("Please complete the verification check before sending.");
+      return;
+    }
     setStatus("sending");
     setErrorMsg("");
     try {
@@ -69,6 +130,7 @@ export default function Contact() {
       fd.append("interest", form.interest);
       fd.append("message", form.message);
       fd.append("botcheck", "");
+      fd.append("cf-turnstile-response", token);
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { Accept: "application/json" },
@@ -79,8 +141,10 @@ export default function Contact() {
         throw new Error(result.message || "The message could not be sent.");
       }
       setStatus("sent");
+      resetTurnstile();
     } catch (err) {
       setStatus("error");
+      resetTurnstile();
       setErrorMsg(
         typeof err.message === "string"
           ? err.message
@@ -268,6 +332,15 @@ export default function Contact() {
                     style={{ display: "none" }}
                   />
 
+                  {TURNSTILE_KEY && !widgetFailed && (
+                    <div
+                      ref={turnstileRef}
+                      className="mt-6"
+                      data-testid="turnstile-widget"
+                      aria-label="Spam protection"
+                    />
+                  )}
+
                   {status === "error" && (
                     <div
                       data-testid="contact-form-error"
@@ -287,7 +360,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     data-testid="contact-form-submit"
-                    disabled={status === "sending"}
+                    disabled={status === "sending" || Boolean(TURNSTILE_KEY && !widgetFailed && !token)}
                     className="group mt-8 inline-flex items-center gap-2 rounded-full bg-amber-500 px-8 py-4 text-sm font-bold text-ink transition-all duration-300 hover:bg-amber-400 hover:shadow-[0_10px_36px_rgba(245,158,11,0.35)] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {status === "sending" ? (
