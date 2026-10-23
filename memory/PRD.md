@@ -10,7 +10,7 @@
 
 ## Architecture
 - Frontend: React 19 + react-router-dom 7 (5 routes), Tailwind, framer-motion (masked reveals, scroll reveals, accordion), Lenis smooth scroll, custom canvas particle hero with mouse parallax
-- Backend: FastAPI + MongoDB retained in repo but NO LONGER used by frontend (2026-10-23): site converted to fully static for Cloudflare Pages deployment. Contact form now opens visitor's email app via mailto:info@tsortechnologies.com (no DB storage). public/_redirects added for SPA routing on static hosts.
+- Backend: FastAPI + MongoDB retained in repo but NO LONGER used by frontend (2026-10-23): site converted to fully static for Cloudflare Pages deployment. Contact form: Web3Forms direct-to-inbox delivery (info@tsortechnologies.com) with honeypot spam check; falls back to mailto compose when REACT_APP_WEB3FORMS_ACCESS_KEY is unset, and shows a mailto fallback link on any send failure. Key saved in frontend env (2026-10-23). NOTE: Web3Forms free tier blocks datacenter IPs, so end-to-end inbox delivery could NOT be verified from the sandbox — user must send one real test enquiry from their own browser to confirm. public/_redirects added for SPA routing on static hosts.
 - Static build: `yarn build` in frontend/ → output dir `build/` (verified passing)
 - Design system: /app/design_guidelines.json — Obsidian slate (#0B0F17), logo-palette accents (amber #F5A623, red #E84A33, blues), Syne display / Plus Jakarta Sans body / JetBrains Mono labels, custom 4-color SVG logo + favicon
 
