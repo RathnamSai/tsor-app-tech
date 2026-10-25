@@ -31,12 +31,6 @@ const PRINCIPLES = [
   },
 ];
 
-const LEADERSHIP = [
-  { initials: "AR", name: "Arjun Rao", role: "Founder & Chief Executive", focus: "Enterprise strategy, delivery accountability" },
-  { initials: "MK", name: "Maya Keller", role: "Chief Technology Officer", focus: "Cloud architecture, applied AI" },
-  { initials: "DO", name: "David Osei", role: "Head of Engineering", focus: "Product engineering, quality systems" },
-];
-
 const CULTURE = [
   "Engineering-led, always",
   "Small senior teams, real ownership",
@@ -173,37 +167,6 @@ export default function WhoWeAre() {
               </article>
             </Reveal>
           ))}
-        </div>
-      </section>
-
-      {/* LEADERSHIP */}
-      <section className="border-t border-white/10 bg-surface/40" data-testid="leadership-section">
-        <div className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
-          <SectionHead
-            eyebrow="Leadership"
-            title="Operators, not figureheads."
-            copy="The people who scope your engagement are the people accountable for delivering it."
-            testid="leadership-head"
-          />
-          <div className="mt-14 grid gap-5 md:grid-cols-3">
-            {LEADERSHIP.map((l, i) => (
-              <Reveal key={l.name} delay={i * 0.08}>
-                <article
-                  data-testid={`leader-card-${i}`}
-                  className="group h-full rounded-2xl border border-white/10 bg-ink p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-amber-500/40"
-                >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-amber-500/30 bg-amber-500/10 font-display text-lg font-bold text-amber-400">
-                    {l.initials}
-                  </div>
-                  <h3 className="mt-6 font-display text-xl font-bold text-slate-50">{l.name}</h3>
-                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-amber-400">
-                    {l.role}
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-400">{l.focus}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

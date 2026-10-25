@@ -27,7 +27,7 @@
 - Contact form wired to backend (stored in MongoDB, validated with EmailStr)
 - Original TSOR logo mark (SVG) + favicon; dark architectural theme
 - Lenis momentum scrolling, framer-motion reveals, particle canvas hero, editorial marquee
-- Placeholder copy throughout except: real About Us narrative (user-provided) and real email info@tsortechnologies.com (2026-10-23); leadership names/metrics/phone remain placeholders; street address removed per user request (2026-10-23) — Global Hubs city list (Austin/Toronto/Bengaluru) still placeholder
+- Placeholder copy throughout except: real About Us narrative (user-provided) and real email info@tsortechnologies.com (2026-10-23); leadership section removed per user request (2026-10-25); metrics/phone remain placeholders; street address removed per user request (2026-10-23) — Global Hubs city list (Austin/Toronto/Bengaluru) still placeholder
 
 ## Backlog
 - P0: Real company content (user to provide), real contact details/address
