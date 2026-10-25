@@ -34,12 +34,6 @@ const INTERESTS = [
   "General Enquiry",
 ];
 
-const HUBS = [
-  { city: "Austin", role: "Headquarters", x: "22%", y: "46%" },
-  { city: "Toronto", role: "North America Delivery", x: "30%", y: "30%" },
-  { city: "Bengaluru", role: "Engineering Center", x: "68%", y: "58%" },
-];
-
 const initialForm = { name: "", email: "", company: "", interest: "General Enquiry", message: "" };
 
 export default function Contact() {
@@ -411,43 +405,6 @@ export default function Contact() {
             </Reveal>
 
             <Reveal delay={0.18}>
-              <div
-                className="grid-pattern relative overflow-hidden rounded-2xl border border-white/10 bg-surface/60 p-7"
-                data-testid="contact-hubs-card"
-              >
-                <p className="font-mono text-[10px] font-medium uppercase tracking-[0.28em] text-amber-400">
-                  Global Hubs
-                </p>
-                <div className="relative mt-6 h-52 rounded-xl border border-white/10 bg-ink/70">
-                  {HUBS.map((hub) => (
-                    <div
-                      key={hub.city}
-                      className="group absolute"
-                      style={{ left: hub.x, top: hub.y }}
-                      data-testid={`hub-dot-${hub.city.toLowerCase()}`}
-                    >
-                      <span className="absolute -inset-2 animate-pulse-dot rounded-full bg-amber-500/20" />
-                      <span className="relative block h-2.5 w-2.5 rounded-full bg-amber-500" />
-                      <span className="absolute left-4 top-1/2 -translate-y-1/2 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.18em] text-slate-300">
-                        {hub.city}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                <ul className="mt-6 space-y-2.5">
-                  {HUBS.map((hub) => (
-                    <li key={hub.city} className="flex items-baseline justify-between text-sm">
-                      <span className="font-semibold text-slate-200">{hub.city}</span>
-                      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-500">
-                        {hub.role}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.24}>
               <div className="rounded-2xl border border-cyan-400/20 bg-cyan-400/5 p-7" data-testid="contact-response-note">
                 <SectionHead
                   eyebrow="Response Time"
