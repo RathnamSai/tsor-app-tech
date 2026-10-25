@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, ArrowUpRight } from "lucide-react";
+import { Mail, ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { SERVICES } from "@/data/siteData";
 
@@ -79,14 +79,8 @@ export default function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-slate-400">
               <li className="flex items-start gap-2.5">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-amber-500" />
-                <a href="mailto:info@tsortechnologies.com" data-testid="footer-email" className="transition-colors hover:text-amber-400">
-                  info@tsortechnologies.com
-                </a>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-amber-500" />
-                <a href="tel:+15125550148" data-testid="footer-phone" className="transition-colors hover:text-amber-400">
-                  +1 (512) 555-0148
+                <a href="mailto:support@tsortechnologies.com" data-testid="footer-email" className="transition-colors hover:text-amber-400">
+                  support@tsortechnologies.com
                 </a>
               </li>
             </ul>

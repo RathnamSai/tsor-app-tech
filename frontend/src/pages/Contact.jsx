@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { Mail, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { Reveal, MaskLine, SectionHead } from "@/components/Reveal";
 import { SERVICES } from "@/data/siteData";
 
-const CONTACT_EMAIL = "info@tsortechnologies.com";
+const CONTACT_EMAIL = "support@tsortechnologies.com";
 const WEB3FORMS_KEY = process.env.REACT_APP_WEB3FORMS_ACCESS_KEY || "";
 const TURNSTILE_KEY = process.env.REACT_APP_TURNSTILE_SITE_KEY || "";
 
@@ -211,7 +211,7 @@ export default function Contact() {
                       <>
                         Thanks{form.name ? `, ${form.name.split(" ")[0]}` : ""} — your enquiry has
                         landed in our inbox. An engineer will come back to you within one business
-                        day. For anything urgent, call the number alongside.
+                        day. For anything urgent, email us directly.
                       </>
                     ) : (
                       <>
@@ -403,19 +403,6 @@ export default function Contact() {
                         className="text-slate-400 transition-colors hover:text-amber-400"
                       >
                         {CONTACT_EMAIL}
-                      </a>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Phone className="mt-0.5 h-4 w-4 shrink-0 text-amber-500" />
-                    <div>
-                      <p className="font-semibold text-slate-200">Phone</p>
-                      <a
-                        href="tel:+15125550148"
-                        data-testid="contact-phone-link"
-                        className="text-slate-400 transition-colors hover:text-amber-400"
-                      >
-                        +1 (512) 555-0148
                       </a>
                     </div>
                   </li>
