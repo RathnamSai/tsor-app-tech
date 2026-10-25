@@ -7,7 +7,7 @@ import { Reveal, MaskLine, SectionHead } from "@/components/Reveal";
 import { SERVICES, INDUSTRIES, IMAGES } from "@/data/siteData";
 
 const STATS = [
-  { value: "10", label: "Service practices" },
+  { value: "11", label: "Service practices" },
   { value: "09", label: "Industries served" },
   { value: "24×7", label: "Managed operations" },
   { value: "40+", label: "Enterprise engagements" },
@@ -197,7 +197,7 @@ export default function Home() {
           <div className="flex flex-wrap items-end justify-between gap-6">
             <SectionHead
               eyebrow="What We Do"
-              title="Ten practices. Full-lifecycle capability."
+              title="Eleven practices. Full-lifecycle capability."
               testid="services-preview-head"
             />
             <Reveal delay={0.15}>

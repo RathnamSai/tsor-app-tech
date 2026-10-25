@@ -47,7 +47,7 @@ export default function WhatWeDo() {
             className="mt-7 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg"
             data-testid="what-subcopy"
           >
-            Strategy, build, run, and the R&D that feeds all three. Ten service practices, one
+            Strategy, build, run, and the R&D that feeds all three. Eleven service practices, one
             engineering standard, zero handoffs lost in translation.
           </motion.p>
         </div>
@@ -58,7 +58,7 @@ export default function WhatWeDo() {
         <div className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
           <SectionHead
             eyebrow="Services"
-            title="Ten practices, on the record."
+            title="Eleven practices, on the record."
             copy="Expand any practice to see how we frame the work. Every engagement is scoped, staffed, and measured against outcomes."
             testid="services-directory-head"
           />

@@ -18,6 +18,7 @@ import {
   ShoppingBag,
   RadioTower,
   PlugZap,
+  Store,
 } from "lucide-react";
 
 export const IMAGES = {
@@ -123,6 +124,14 @@ export const SERVICES = [
     blurb:
       "Applied AI that ships — data platforms, ML models in production, and decision systems wired into real workflows.",
     tags: ["Data Platforms", "MLOps", "GenAI"],
+  },
+  {
+    num: "11",
+    title: "Online Reseller",
+    icon: Store,
+    blurb:
+      "Authorized online reselling of software, licenses, and hardware — genuine products, competitive pricing, and procurement without the paperwork.",
+    tags: ["Software Licenses", "Hardware", "Procurement"],
   },
 ];
 

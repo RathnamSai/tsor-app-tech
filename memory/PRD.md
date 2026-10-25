@@ -17,7 +17,7 @@
 ## Core Requirements (static)
 1. Home — kinetic masked-reveal hero, marquee, bento pillars, services index, industries strip, CTA
 2. Who We Are — about narrative, method, leadership, Join Us/Careers info section
-3. What We Do — 10 sub-services directory, Products (Coming Soon), Training (Coming Soon), R&D
+3. What We Do — 11 sub-services directory (Online Reseller added 2026-10-25), Products (Coming Soon), Training (Coming Soon), R&D
 4. Industries — 9 industry cards + metrics
 5. Contact — enquiry form, contact details, global hubs/location block
 
